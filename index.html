@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galaxy S26 x 케데헌 디지털 팝업</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <!-- 1페이지 -->
+    <section id="mainPage" class="page active">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <p class="mini-label">DIGITAL POP-UP EXPERIENCE</p>
+          <h1>과거가 현재로 뛰어오르다</h1>
+          <p class="top-desc">Galaxy S26 x 케데헌</p>
+        </div>
+      </header>
+
+      <main class="container narrow">
+        <section class="hero-card">
+          <div class="hero-image-wrap">
+            <img src="01.png" alt="메인 비주얼" class="hero-image" />
+          </div>
+
+          <div class="hero-copy">
+            <p class="eyebrow">Key Visual Concept</p>
+            <h2>호작도에서 현실로 튀어나오는 체험</h2>
+            <p class="hero-desc">
+              전통 민화 속 호작도를 Galaxy S26의 몰입형 비주얼과 캐릭터 연출로
+              새롭게 경험하는 디지털 팝업입니다.
+            </p>
+          </div>
+        </section>
+
+        <section class="info-panel">
+          <div class="glass-card">
+            <h3>팝업 소개</h3>
+            <p>
+              메인 화면에서 콘셉트를 확인한 뒤, 다음 화면에서 호작도를 감상하고
+              더피를 현실 공간으로 불러오는 체험을 진행할 수 있습니다.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <h3>체험 순서</h3>
+            <ol>
+              <li>메인 비주얼 및 콘셉트 확인</li>
+              <li>호작도 작품 감상</li>
+              <li>더피 등장 및 AR 실행</li>
+              <li>퀴즈 및 사진 공유하기</li>
+            </ol>
+          </div>
+        </section>
+
+        <button id="goViewerBtn" class="primary-btn full-btn">
+          체험 시작하기
+        </button>
+      </main>
+    </section>
+
+    <!-- 2페이지 -->
+    <section id="viewerPage" class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <p class="mini-label">EXPERIENCE</p>
+          <h1>호작도 감상</h1>
+          <p class="top-desc">작품을 보고 더피 등장 체험으로 넘어가세요</p>
+        </div>
+      </header>
+
+      <main class="container narrow">
+        <div class="glass-card viewer-info">
+          <h2>호작도 작품 감상</h2>
+          <p>
+            아래 작품 이미지를 마우스로 움직이면 확대된 느낌으로 자세히 볼 수
+            있습니다. 오른쪽의 더피 등장 버튼을 누르면 지원 기기에서 카메라 AR이
+            실행됩니다.
+          </p>
+        </div>
+
+        <div class="glass-card art-stage">
+          <div class="combined-stage">
+            <div class="art-frame" id="artFrame">
+              <img
+                id="hojakdoImage"
+                src="호작도.jpg"
+                alt="호작도 작품 이미지"
+                class="hojakdo-image"
+              />
+            </div>
+
+            <div class="duffy-side-panel">
+              <button id="arLaunchBtn" class="duffy-launch-btn" type="button">
+                <span class="duffy-launch-face">🐯</span>
+                <span class="duffy-launch-label">더피 등장!</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card artwork-desc">
+          <h3>작품 설명</h3>
+          <p>
+            호작도는 호랑이와 까치가 함께 등장하는 전통 민화입니다. 호랑이는
+            위엄을, 까치는 반가운 소식과 재치를 상징하며, 민화에서는 무섭기보다
+            익살스럽고 친근한 이미지로 표현되기도 합니다.
+          </p>
+        </div>
+
+        <!-- 숨겨진 model-viewer: 더피 AR 실행용 -->
+        <div class="hidden-ar-viewer">
+          <model-viewer
+            id="duffyViewer"
+            src="kpop_demon_hunters_derpy%20(1).glb"
+            alt="더피 3D 모델"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            auto-rotate
+            shadow-intensity="1"
+            exposure="1.2"
+            environment-image="neutral"
+            tone-mapping="commerce"
+            style="
+              width: 1px;
+              height: 1px;
+              opacity: 0;
+              position: absolute;
+              pointer-events: none;
+            "
+          >
+          </model-viewer>
+        </div>
+
+        <div class="btn-row">
+          <button id="backBtn" class="sub-btn">이전</button>
+          <button id="goQuizBtn" class="primary-btn">다음</button>
+        </div>
+      </main>
+    </section>
+
+    <!-- 3페이지 -->
+    <section id="quizPage" class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <p class="mini-label">FINISH</p>
+          <h1>체험 마무리</h1>
+          <p class="top-desc">퀴즈를 풀고 사진을 남겨보세요</p>
+        </div>
+      </header>
+
+      <main class="container narrow">
+        <div class="glass-card equal-card">
+          <div class="quiz-head">
+            <h2>퀴즈 챌린지</h2>
+            <span>1 / 1</span>
+          </div>
+
+          <p class="quiz-question">
+            Q. 다음 중 호작도에 등장하지 않는것은 무엇일까요?
+          </p>
+
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="false">호랑이</button>
+            <button class="quiz-option" data-correct="false">까치</button>
+            <button class="quiz-option" data-correct="true">토끼</button>
+            <button class="quiz-option" data-correct="false">소나무</button>
+          </div>
+
+          <p id="quizResult" class="quiz-result"></p>
+        </div>
+
+        <div class="glass-card equal-card share-card-section">
+          <h3>공유해보세요!</h3>
+          <p>
+            더피와 함께한 체험 장면을 다시 찍거나 저장한 뒤 친구들과
+            공유해보세요.
+          </p>
+
+          <div class="action-buttons">
+            <button id="captureBtn" class="primary-btn">사진 다시 찍기</button>
+            <button id="shareBtn" class="sub-btn">공유하기</button>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button id="quizBackBtn" class="sub-btn">이전</button>
+          <button id="goMainBtn" class="primary-btn">처음으로</button>
+        </div>
+      </main>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,413 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #06080d;
+  --panel: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f5f7fb;
+  --subtext: #a9b3c3;
+  --blue: #4f8cff;
+  --blue-dark: #2e68d3;
+}
+
+body {
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(79, 140, 255, 0.12), transparent 25%),
+    linear-gradient(180deg, #07090e 0%, #05070b 100%);
+}
+
+.page.active {
+  display: block;
+}
+
+.topbar {
+  padding: 48px 20px 20px;
+}
+
+.topbar-inner {
+  width: min(860px, calc(100% - 24px));
+  margin: 0 auto;
+}
+
+.mini-label {
+  font-size: 12px;
+  letter-spacing: 1.8px;
+  color: #7ca8ff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.topbar h1 {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.top-desc {
+  color: var(--subtext);
+  font-size: 15px;
+}
+
+.container {
+  width: min(820px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0 48px;
+}
+
+.hero-card {
+  margin-bottom: 18px;
+}
+
+.hero-image-wrap {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #111;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+}
+
+.hero-image {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-copy {
+  padding: 24px 6px 8px;
+}
+
+.eyebrow {
+  color: #7ca8ff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.hero-copy h2 {
+  font-size: 28px;
+  line-height: 1.24;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero-desc {
+  color: var(--subtext);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.info-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.glass-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.glass-card h2,
+.glass-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.glass-card p,
+.glass-card li {
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.glass-card ol {
+  padding-left: 18px;
+}
+
+.viewer-info,
+.artwork-desc {
+  margin-bottom: 16px;
+}
+
+.art-stage {
+  margin-bottom: 16px;
+}
+
+.combined-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  align-items: stretch;
+  gap: 24px;
+  min-height: 460px;
+  border-radius: 24px;
+  background: #0d1118;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px;
+}
+
+.art-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 412px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d1118;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.hojakdo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.12s linear;
+  transform-origin: center center;
+  background: #0d1118;
+}
+
+.duffy-side-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.duffy-launch-btn {
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.duffy-launch-face {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffca70 0%, #ff9f43 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 54px;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
+  transition: 0.2s ease;
+}
+
+.duffy-launch-label {
+  background: #203a68;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: 0.2s ease;
+}
+
+.duffy-launch-btn:hover .duffy-launch-face {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.03);
+}
+
+.duffy-launch-btn:hover .duffy-launch-label {
+  background: #2d4f8f;
+}
+
+.hidden-ar-viewer {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+.primary-btn,
+.sub-btn {
+  border: none;
+  border-radius: 16px;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: white;
+}
+
+.primary-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.sub-btn {
+  background: #171c26;
+  color: #dbe5f5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sub-btn:hover {
+  background: #1c2230;
+}
+
+.full-btn {
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.equal-card {
+  margin-bottom: 16px;
+}
+
+.quiz-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.quiz-head span {
+  font-size: 13px;
+  color: var(--subtext);
+}
+
+.quiz-question {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: #f3f6fb;
+  font-weight: 700;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.quiz-option {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111722;
+  color: #eef4ff;
+  border-radius: 16px;
+  padding: 16px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.quiz-option:hover {
+  background: #192132;
+}
+
+.quiz-option.correct {
+  background: rgba(43, 184, 115, 0.16);
+  border-color: rgba(43, 184, 115, 0.5);
+  color: #9ff0bf;
+}
+
+.quiz-option.wrong {
+  background: rgba(255, 92, 92, 0.14);
+  border-color: rgba(255, 92, 92, 0.45);
+  color: #ffb1b1;
+}
+
+.quiz-result {
+  margin-top: 16px;
+  min-height: 24px;
+  color: #8db4ff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.share-card-section {
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+@media (max-width: 768px) {
+  .topbar h1 {
+    font-size: 28px;
+  }
+
+  .hero-image {
+    height: 240px;
+  }
+
+  .hero-copy h2 {
+    font-size: 22px;
+  }
+
+  .info-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .combined-stage {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .art-frame {
+    min-height: 360px;
+  }
+
+  .duffy-side-panel {
+    align-items: center;
+  }
+
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .duffy-launch-face {
+    width: 88px;
+    height: 88px;
+    font-size: 42px;
+  }
+}
